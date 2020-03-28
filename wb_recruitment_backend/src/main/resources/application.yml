@@ -31,5 +31,5 @@ mybatis-plus:
 
 # 微信配置
 wx:
-  appId: wx2f10f1fd7f9a4b99
-  appSecret: beb56836639cb33b9ead9f6a5d14b988
+  appId: wx4feb9de6146074d9
+  appSecret: 3879712509b8a66ddb66267c571212ea

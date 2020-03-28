@@ -11,9 +11,9 @@ spring:
       max-request-size: 50MB
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/recruitment?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
-    username: root
-    password: root
+    url: jdbc:mysql://121.199.78.3:3306/uoffer?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: uoffer
+    password: neaJ5Dh4RsRWB463
     hikari:
       # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 默认:30秒
       connection-timeout: 30000
@@ -31,10 +31,10 @@ spring:
       max-lifetime: 1800000
       connection-test-query: SELECT 1
   redis:
-    host: localhost
+    host: 121.199.78.3
     port: 6379
     # Redis服务器连接密码（默认为空）
-    password: recruitmentRedis!
+    password: 47hAc5NiNKze5KcX
     # 连接超时时间（毫秒）
     timeout: 10000
     jedis:

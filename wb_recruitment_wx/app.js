@@ -50,7 +50,8 @@ App({
     openId: null,
     userInfo: null,
     token: null,
-    urlPath: 'http://121.199.49.84:9000',
+    // urlPath: 'http://localhost:9000',
+    urlPath: 'http://121.199.78.3:9000',
     mainMDL: 'wxApi'
   }
 })

@@ -1,0 +1,6 @@
+<view class="gui-tags">
+  <view class="gui-tags-item" wx:for="{{items}}" wx:key="index" bindtap="removeTag" data-index="{{index}}" 
+  style="background:{{bgColor}}; border-radius:{{borderRadius}}; margin-right:{{margin+'rpx'}}; margin-bottom:{{margin+'rpx'}}">
+    <text class="grace-icons gui-tags-remove" style="font-size:{{fontSize+'rpx'}}; line-height:{{(fontSize*1.5)+'rpx'}}; color:{{color}};">{{item}}</text>
+  </view>
+</view>

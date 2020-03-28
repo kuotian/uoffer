@@ -1,0 +1,21 @@
+<view class="grace-mask" catchtap="done" catchtouchmove="{{true}}" wx:if="{{show}}"></view>
+<view class="grace-keyboard" wx:if="{{show}}">
+  <view class="grace-keyboard-left">
+    <view class="grace-keyboard-keys" data-keynumber="1" hover-class="keydown" hover-stay-time="100" catchtap="inputNow">1</view>
+    <view class="grace-keyboard-keys" data-keynumber="2" hover-class="keydown" hover-stay-time="100" catchtap="inputNow">2</view>
+    <view class="grace-keyboard-keys" data-keynumber="3" hover-class="keydown" hover-stay-time="100" catchtap="inputNow">3</view>
+    <view class="grace-keyboard-keys" data-keynumber="4" hover-class="keydown" hover-stay-time="100" catchtap="inputNow">4</view>
+    <view class="grace-keyboard-keys" data-keynumber="5" hover-class="keydown" hover-stay-time="100" catchtap="inputNow">5</view>
+    <view class="grace-keyboard-keys" data-keynumber="6" hover-class="keydown" hover-stay-time="100" catchtap="inputNow">6</view>
+    <view class="grace-keyboard-keys" data-keynumber="7" hover-class="keydown" hover-stay-time="100" catchtap="inputNow">7</view>
+    <view class="grace-keyboard-keys" data-keynumber="8" hover-class="keydown" hover-stay-time="100" catchtap="inputNow">8</view>
+    <view class="grace-keyboard-keys" data-keynumber="9" hover-class="keydown" hover-stay-time="100" catchtap="inputNow">9</view>
+    <view class="grace-keyboard-keys" 
+    style="width:{{isPoint ? '259rpx':'538rpx'}}" hover-class="keydown" hover-stay-time="100" data-keynumber="0" catchtap="inputNow">0</view>
+    <view wx:if="{{isPoint}}" class="grace-keyboard-keys" style="width:259rpx;" hover-class="keydown" hover-stay-time="100" data-keynumber="." catchtap="inputNow">.</view>
+  </view>
+  <view class="grace-keyboard-right">
+    <view class="grace-keyboard-keys grace-keyboard-delete grace-icons" hover-class="keydown" hover-stay-time="100" catchtap="deleteNow"></view>
+    <view class="grace-keyboard-keys grace-keyboard-done" catchtap="done">{{doneBtnName}}</view>
+  </view>
+</view>

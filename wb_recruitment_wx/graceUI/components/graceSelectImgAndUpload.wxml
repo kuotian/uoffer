@@ -1,0 +1,17 @@
+<view class="grace-add-list">
+		<view class="grace-add-list-items" wx:for="{{imgLists}}" wx:key="index">
+			<image src="{{item.url}}" data-imgurl="{{item.url}}" bindtap="showImgs"></image>
+			<view class="grace-add-list-remove grace-icons icon-close" style="color:{{closeBtnColor}}" catchtap="removeImg" id="{{'grace-items-img-'+index}}"></view>
+			<view class="upload-progress">
+			   <progress percent="{{item.progress}}" stroke-width="{{progressSize}}" activeColor="{{progressColor}}" backgroundColor="{{progressBGColor}}" />	
+			</view>
+			<view class="grace-add-list-reup" catchtap="retry" data-index="{{index}}" wx:if="{{item.error}}">
+				<text class="grace-add-list-reup-icon grace-icons icon-retry"></text>
+				<text class="grace-add-list-reup-text">失败重试</text>
+			</view>
+		</view>
+		<view class="grace-add-list-items grace-add-list-btn" bindtap="addImg" wx:if="{{imgLists.length < maxFileNumber}}">
+			<view class="grace-add-list-btn-icon">+</view>
+			<view class="grace-add-list-btn-text">{{btnName}}</view>
+		</view>
+	</view>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxxzt.recruitment.system.mapper.SysOperationLogMapper">
+  <resultMap id="BaseResultMap" type="com.hxxzt.recruitment.system.entity.SysOperationLog">
+    <!--@mbg.generated-->
+    <!--@Table sys_operation_log-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="operation" jdbcType="VARCHAR" property="operation" />
+    <result column="time" jdbcType="BIGINT" property="time" />
+    <result column="method" jdbcType="LONGVARCHAR" property="method" />
+    <result column="params" jdbcType="LONGVARCHAR" property="params" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="result" jdbcType="LONGVARCHAR" property="result" />
+    <result column="module" jdbcType="VARCHAR" property="module" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, username, `operation`, `time`, `method`, params, ip, create_time, address,result
+  </sql>
+    <update id="clean">
+      truncate table sys_operation_log
+    </update>
+    <select id="getModule" resultMap="BaseResultMap">
+        select `module` from sys_operation_log group by `module`
+    </select>
+
+</mapper>

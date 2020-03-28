@@ -1,0 +1,189 @@
+<!-- pages/user/jianli/xiugai/xiugai.wxml -->
+<view class='head'>
+  <image src='../../../../images/mine/bg1.png'></image>
+  <view class='head1' style="{{pageParam.jid?'':'top:30px'}}">
+    <view class='head1_img'>
+      <view class='head1_img1'>
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data class="head1_text" type="userNickName"></open-data>
+    </view>
+    <view wx:if="{{pageParam.jid}}" class='head_one'>
+      <view class='head_one1'>
+        <view class='head_one2' bindtap='yulanFunc'>预览简历</view>
+      </view>
+      <view class='head_one1'>
+        <view class='head_one2' bindtap="refresh">刷新简历</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- <view class='two' wx:if="{{pageParam.jid}}">
+  <view class='two1'>简历完整度:84%</view>
+  <view class='two2'>更新时间:2018-07-04</view>
+</view> -->
+<gracePage customHeader="{{false}}">
+  <view slot="gBody" class="grace-body">
+  <form bindsubmit="formSubmit" class="grace-form grace-margin-top">
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">简历名称</text>
+      <view class="grace-form-body">
+        <input type="text" class="grace-form-input" name="title" 
+        value="{{form.title}}"placeholder="请输入简历名称" />
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">姓名</text>
+      <view class="grace-form-body">
+        <input type="text" class="grace-form-input" name="name" value="{{form.name}}" placeholder="请输入姓名" />
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">年龄</text>
+      <view class="grace-form-body">
+        <input type="text" class="grace-form-input" type="number" name="age" value="{{form.age}}"  placeholder="请输入年龄" />
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">性别</text>
+      <view class="grace-form-body">
+        <picker class="grace-form-picker" bindchange="bindPickerChange" value="{{genderIndex}}" range="{{gender}}" name="gender">
+          <text class="grace-text">{{gender[genderIndex]}}</text>
+          <text class="grace-icons icon-arrow-down" style="margin-left:5px;"></text>
+        </picker>
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">出生日期</text>
+      <view class="grace-form-body">
+        <picker class="grace-form-picker" mode="date" bindchange="bindDatePickerChange" value="{{form.birthday}}"  name="birthday">
+          <text class="grace-text">{{form.birthday}}</text>
+          <text class="grace-icons icon-arrow-down" style="margin-left:5px;"></text>
+        </picker>
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">参加工作时间</text>
+      <view class="grace-form-body">
+        <picker class="grace-form-picker" mode="date" bindchange="bindWorkPickerChange" value="{{form.workingHours}}"  name="workingHours">
+          <text class="grace-text">{{form.workingHours}}</text>
+          <text class="grace-icons icon-arrow-down" style="margin-left:5px;"></text>
+        </picker>
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">现居住地址</text>
+      <view class="grace-form-body">
+        <input type="text" class="grace-form-input" name="nowAddress" value="{{form.nowAddress}}" placeholder="请输入现居住地址" />
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">户籍地址</text>
+      <view class="grace-form-body">
+        <input type="text" class="grace-form-input" name="domicileAddress" value="{{form.domicileAddress}}" placeholder="请输入现居住地址" />
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">手机号</text>
+      <view class="grace-form-body">
+        <input type="text" class="grace-form-input" type="number" name="mobile" value="{{form.mobile}}" placeholder="请输入手机号" />
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">邮箱</text>
+      <view class="grace-form-body">
+        <input type="text" class="grace-form-input" name="email" value="{{form.email}}" placeholder="请输入邮箱" />
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">求职意向</text>
+      <view class="grace-form-body">
+        <input type="text" class="grace-form-input" name="jobIntention" value="{{form.jobIntention}}" placeholder="请输入求职意向" />
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">学历</text>
+      <view class="grace-form-body">
+        <picker class="grace-form-picker" bindchange="bindEducationChange" value="{{educationIndex}}" range="{{education}}" name="education">
+          <text class="grace-text">{{education[educationIndex]}}</text>
+          <text class="grace-icons icon-arrow-down" style="margin-left:5px;"></text>
+        </picker>
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">毕业院校</text>
+      <view class="grace-form-body">
+        <input type="text" class="grace-form-input" name="schoolOfGraduation" value="{{form.schoolOfGraduation}}" placeholder="请输入现居住地址" />
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">专业</text>
+      <view class="grace-form-body">
+        <input type="text" class="grace-form-input" name="major" value="{{form.major}}" placeholder="请输入现居住地址" />
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">工作经历</text>
+      <view class="grace-form-body" style="padding:20rpx 0;">
+        <textarea class="grace-textarea" name="workExperience" value="{{form.workExperience}}" placeholder="请输入工作经历" />
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">项目经验</text>
+      <view class="grace-form-body" style="padding:20rpx 0;">
+        <textarea class="grace-textarea" name="projectExperience" value="{{form.projectExperience}}" placeholder="请输入项目经验" />
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b" >
+      <text class="grace-form-label">自我评价</text>
+      <view class="grace-form-body" style="padding:20rpx 0;">
+        <textarea class="grace-textarea" name="selfAppraisal" value="{{form.selfAppraisal}}" placeholder="请输入自我评价" />
+      </view>
+    </view>
+    <view class="grace-form-item">
+      <text class="grace-form-label">隐藏简历</text>
+      <view class="grace-form-body grace-nowrap grace-flex-end">
+        <switch name="switch" checked="{{form.isHide}}" />
+      </view>
+    </view>
+    <view style="padding:22rpx 0;">
+      <button class="grace-button" style="line-height:80rpx;" formType="submit" type="primary">提交</button>
+    </view>
+  </form>
+  </view>
+</gracePage>
+<!-- <view class='three' style='margin-top:60rpx;' bindtap='jlnameFunc'>
+  <view class='three_nane'>简历名称</view>
+  <image src='../../../../images/mine/mine_right.png'></image>
+  <view class='three_title'>{{pageData.title}}</view>
+</view>  
+<view class='three' bindtap='information'>
+  <view class='three_nane'>个人信息</view>
+  <image src='../../../../images/mine/mine_right.png'></image>
+  <view class='three_title1'>完整</view>
+</view>
+<view class='three'>
+  <view class='three_nane'>求职意向</view>
+  <image src='../../../../images/mine/mine_right.png'></image>
+  <view class='three_title'>完整</view>
+</view>
+<view class='three'>
+  <view class='three_nane'>教育背景</view>
+  <image src='../../../../images/mine/mine_right.png'></image>
+  <view class='three_title'>完整</view>
+</view>
+<view class='three'>
+  <view class='three_nane'>工作经历</view>
+  <image src='../../../../images/mine/mine_right.png'></image>
+  <view class='three_title'>完整</view>
+</view>
+<view class='three'>
+  <view class='three_nane'>项目经验</view>
+  <image src='../../../../images/mine/mine_right.png'></image>
+  <view class='three_title'>完整</view>
+</view>
+<view class='three' style='margin-bottom:60rpx;'>
+  <view class='three_nane'>自我评价</view>
+  <image src='../../../../images/mine/mine_right.png'></image>
+  <view class='three_title'>完整</view>
+</view> -->

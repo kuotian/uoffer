@@ -1,0 +1,99 @@
+/* pages/user/jianli/xiugai/xiugai.wxss */
+.head{
+  width: 100%;
+  height: 400rpx;
+  position: relative;
+  background-color: #2AA2DF;
+}
+.head image{
+  width: 100%;
+  height: 100%;
+}
+.head1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400rpx;
+}
+.head1_img{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius:50%;
+  margin:20rpx auto;
+  background: #fff; 
+}
+.head1_img1{
+  display: block;
+  overflow: hidden;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius:50%
+}
+.head1_text{
+  font-size: 34rpx;
+  color: #fff;
+  text-align: center;
+}
+.head_one{
+  width: 70%;
+  display: flex;
+  margin: 30rpx auto;
+  padding-top: 60rpx;
+}
+.head_one1{
+  flex: 1;
+}
+.head_one2{
+  font-size: 30rpx;
+  color: #fff;
+  padding: 10rpx 20rpx;
+  border: 1rpx solid #fff;
+  border-radius:30rpx;
+  width: 46%;
+  margin: 0 auto;
+}
+.two{
+  width: 90%;
+  margin: 0 auto;
+  font-size: 26rpx;
+  color: #999999;
+}
+.two1{
+  float: left;
+}
+.two2{
+  float: right;
+}
+.three{
+  width: 95%;
+  height: 100rpx;
+  box-shadow: 0 0 10rpx 5rpx #eee;
+  margin: 30rpx auto;
+  line-height: 100rpx;
+  border-radius:10rpx; 
+}
+.three_nane{
+  font-size: 32rpx;
+  color: #333333;
+  margin-left: 20rpx;
+  float: left;
+}
+.three_title{
+  font-size: 32rpx;
+  float: right;
+  margin-right: 30rpx;
+}
+.three_title1{
+  font-size: 32rpx;
+  color: #999999;
+  float: right;
+  margin-right: 30rpx;
+}
+.three image{
+  width: 20rpx;
+  height: 30rpx;
+  float: right;
+  margin-top:36rpx;
+  margin-right: 20rpx;
+}

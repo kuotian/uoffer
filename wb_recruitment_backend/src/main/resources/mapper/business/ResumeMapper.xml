@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxxzt.recruitment.business.mapper.ResumeMapper">
+    <resultMap id="BaseResultMap" type="com.hxxzt.recruitment.business.entity.Resume">
+        <!--@mbg.generated-->
+        <!--@Table resume-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+        <result column="gender" jdbcType="VARCHAR" property="gender"/>
+        <result column="birthday" jdbcType="DATE" property="birthday"/>
+        <result column="working_hours" jdbcType="DATE" property="workingHours"/>
+        <result column="now_address" jdbcType="VARCHAR" property="nowAddress"/>
+        <result column="domicile_address" jdbcType="VARCHAR" property="domicileAddress"/>
+        <result column="mobile" jdbcType="VARCHAR" property="mobile"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="job_intention" jdbcType="VARCHAR" property="jobIntention"/>
+        <result column="education" jdbcType="VARCHAR" property="education"/>
+        <result column="school_of_graduation" jdbcType="VARCHAR" property="schoolOfGraduation"/>
+        <result column="major" jdbcType="VARCHAR" property="major"/>
+        <result column="work_experience" jdbcType="LONGVARCHAR" property="workExperience"/>
+        <result column="project_experience" jdbcType="LONGVARCHAR" property="projectExperience"/>
+        <result column="self_appraisal" jdbcType="LONGVARCHAR" property="selfAppraisal"/>
+        <result column="refresh_time" jdbcType="TIMESTAMP" property="refreshTime"/>
+        <result column="is_hide" jdbcType="BOOLEAN" property="isHide"/>
+        <result column="is_default" jdbcType="BOOLEAN" property="isDefault"/>
+        <result column="wx_user_id" jdbcType="INTEGER" property="wxUserId"/>
+        <result column="wx_nickname" jdbcType="VARCHAR" property="wxNickname"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="deleted" jdbcType="BOOLEAN" property="deleted"/>
+    </resultMap>
+
+    <resultMap id="Resume_ResumeSend_Map" type="com.hxxzt.recruitment.business.entity.Resume">
+        <!--@mbg.generated-->
+        <!--@Table resume-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+        <result column="gender" jdbcType="VARCHAR" property="gender"/>
+        <result column="birthday" jdbcType="DATE" property="birthday"/>
+        <result column="working_hours" jdbcType="DATE" property="workingHours"/>
+        <result column="now_address" jdbcType="VARCHAR" property="nowAddress"/>
+        <result column="domicile_address" jdbcType="VARCHAR" property="domicileAddress"/>
+        <result column="mobile" jdbcType="VARCHAR" property="mobile"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="job_intention" jdbcType="VARCHAR" property="jobIntention"/>
+        <result column="education" jdbcType="VARCHAR" property="education"/>
+        <result column="school_of_graduation" jdbcType="VARCHAR" property="schoolOfGraduation"/>
+        <result column="major" jdbcType="VARCHAR" property="major"/>
+        <result column="work_experience" jdbcType="LONGVARCHAR" property="workExperience"/>
+        <result column="project_experience" jdbcType="LONGVARCHAR" property="projectExperience"/>
+        <result column="self_appraisal" jdbcType="LONGVARCHAR" property="selfAppraisal"/>
+        <result column="refresh_time" jdbcType="TIMESTAMP" property="refreshTime"/>
+        <result column="is_hide" jdbcType="BOOLEAN" property="isHide"/>
+        <result column="is_default" jdbcType="BOOLEAN" property="isDefault"/>
+        <result column="wx_user_id" jdbcType="INTEGER" property="wxUserId"/>
+        <result column="wx_nickname" jdbcType="VARCHAR" property="wxNickname"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="deleted" jdbcType="BOOLEAN" property="deleted"/>
+        <association property="resumeSend" javaType="com.hxxzt.recruitment.business.entity.ResumeSend">
+            <id column="rsId" jdbcType="INTEGER" property="rsId"/>
+            <result column="resume_id" jdbcType="INTEGER" property="resumeId"/>
+            <result column="info_id" jdbcType="INTEGER" property="infoId"/>
+            <result column="is_check" jdbcType="BOOLEAN" property="isCheck"/>
+            <result column="check_time" jdbcType="TIMESTAMP" property="checkTime"/>
+            <result column="status" jdbcType="INTEGER" property="status"/>
+            <result column="interview_status" jdbcType="INTEGER" property="interviewStatus"/>
+            <result column="interview_time" jdbcType="TIMESTAMP" property="interviewTime"/>
+        </association>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, title, `name`, age, gender, birthday, working_hours, now_address, domicile_address,
+        mobile, email, job_intention, education, school_of_graduation, major, work_experience,
+        project_experience, self_appraisal, refresh_time, is_hide, is_default, wx_user_id, wx_nickname,
+        create_time, modify_time, deleted
+    </sql>
+    <sql id="Base_Column_List_R">
+        <!--@mbg.generated-->
+        r.id, r.title, r.`name`, r.age, r.gender, r.birthday, r.working_hours, r.now_address, r.domicile_address,
+        r.mobile, r.email, r.job_intention, r.education, r.school_of_graduation, r.major, r.work_experience,
+        r.project_experience, r.self_appraisal, r.refresh_time, r.is_hide, r.is_default, r.wx_user_id, r.wx_nickname,
+        r.create_time, r.modify_time, r.deleted
+    </sql>
+    <select id="getResumeByResumeSendId" resultMap="Resume_ResumeSend_Map">
+        select
+        <include refid="Base_Column_List_R"/>,
+        rs.id as rsId, rs.is_check, rs.check_time, rs.status, rs.create_time, rs.interview_status, rs.interview_time
+        from resume_send rs
+        left join resume r on rs.resume_id = r.id
+        left join recruitment_info ri on rs.info_id = ri.id
+        where rs.id = #{resumeSendId,jdbcType=INTEGER}
+    </select>
+
+</mapper>

@@ -1,0 +1,9 @@
+<!--pages/user/jianli/xiugai/jlname/jlname.wxml-->
+<form report-submit bindsubmit='submitFunc'>
+<view class='lest'>
+  <input class='lest_input' placeholder="请填写简历名称" bindinput='inputFunc' name="{{vaput}}" value='{{vaput}}' />
+  <image class='lest_img' bindtap='delFunc' src='../../../../../images/nav/wrong.png'></image>
+</view>
+
+<button form-type='submit' class='determine' >保存</button>
+</form>

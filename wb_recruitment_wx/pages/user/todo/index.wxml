@@ -1,0 +1,57 @@
+<!--index.wxml-->
+<view class='page_row'>
+	<view class="search">
+		<image bindtap='search' src='../../../images/search.png' style='width:40rpx;height:40rpx;float:left;margin-top:15rpx;margin-left:30rpx;'></image>
+		<picker mode="date" value="{{date}}" bindchange="bindDateChange">
+			<view class="picker">
+				{{date}}
+			</view>
+		</picker>
+	</view>
+	<view class='onsearch' bindtap='clearFunc'>取消</view>
+</view>
+<view class="page" wx:if="{{!showGoods}}">
+	<view class="todo-list">
+		<view class="todo-header">
+			今日待办
+		</view>
+		<view wx:for="{{ today }}" wx:key="index" class="todo-list__item ripple fast fadeInRight" style="animation-delay: {{ delay ? index * 0.1 : 0 }}s">
+			<todo-item class="todo-item" todo="{{ item }}" data-index="{{ index }}" data-type="today" data-toid="{{item.id}}"
+			 catchtap="handleTodoUplate"  bindlongtap="handleTodoLongTap">
+			</todo-item>
+		</view>
+		<view class="ripple bounceIn" wx:if="{{!todayCount}}">
+			<tips-info text="您今天没有待办事项">
+			</tips-info>
+		</view>
+	</view>
+	<view class="todo-list">
+		<view class="todo-header">
+			明日待办
+		</view>
+		<view wx:for="{{ tomorrow }}" wx:key="index" class="todo-list__item ripple fast fadeInRight" style="animation-delay: {{ delay ? index * 0.1 : 0 }}s">
+			<todo-item class="todo-item" todo="{{ item }}" data-index="{{ index }}" data-type="tomorrow" data-toid="{{item.id}}"
+			 catchtap="handleTodoUplate" bindlongtap="handleTodoLongTap">
+			</todo-item>
+		</view>
+		<view class="ripple bounceIn" wx:if="{{!tomorrowCount}}">
+			<tips-info text="您明天没有待办事项">
+			</tips-info>
+		</view>
+	</view>
+	<view class="todo-add" bindtap="handleAddTodo">+</view>
+</view>
+<view class="todo-list"  wx:if="{{showGoods}}">
+	<view class="todo-header" >
+		{{date}} 待办事项
+	</view>
+	<view wx:for="{{searchResult}}" wx:key="index" class="todo-list__item ripple fast fadeInRight" style="animation-delay: {{ delay ? index * 0.1 : 0 }}s">
+		<todo-item class="todo-item" todo="{{ item }}" data-index="{{ index }}" data-type="today" data-toid="{{item.id}}"
+		 catchtap="handleTodoUplate" bindlongtap="handleTodoLongTap">
+		</todo-item>
+	</view>
+	<view class="ripple bounceIn" wx:if="{{showGoods && !searchResult.length}}">
+		<tips-info text="您当天没有待办事项">
+		</tips-info>
+	</view>
+</view>

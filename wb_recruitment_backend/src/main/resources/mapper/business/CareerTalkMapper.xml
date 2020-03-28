@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxxzt.recruitment.business.mapper.CareerTalkMapper">
+  <resultMap id="BaseResultMap" type="com.hxxzt.recruitment.business.entity.CareerTalk">
+    <!--@mbg.generated-->
+    <!--@Table career_talk-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="ent_name" jdbcType="VARCHAR" property="entName" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="linkman" jdbcType="VARCHAR" property="linkman" />
+    <result column="linkman_email" jdbcType="VARCHAR" property="linkmanEmail" />
+    <result column="school" jdbcType="VARCHAR" property="school" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="deleted" jdbcType="BOOLEAN" property="deleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, ent_name, address, `time`, content, linkman, linkman_email, school, user_id, username,
+    create_time, deleted
+  </sql>
+
+</mapper>

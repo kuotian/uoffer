@@ -1,0 +1,35 @@
+server:
+  port: 9000
+
+spring:
+  profiles:
+    active: dev
+# 数据库连接池
+
+mybatis:
+  type-aliases-package: com.hxxzt.recruitment.**.entity
+  mapper-locations: classpath:mapper/**/*.xml
+  configuration-properties: classpath:mybatis/mybatis-config.xml
+
+penint:
+  # 是否异步记录用户操作日志
+  openAopLog: true
+  shiro:
+    # 后端免认证接口 url
+    anonUrl: /v2/**,/swagger-resources/**,/swagger-ui.html,/webjars/**,/adminApi/auth/doLogin/**,/adminApi/auth/register/**,/adminApi/image/**,/adminApi/captchaImage/**,/wxApi/**,/adminApi/common/checkUsername/**
+    # 后台token有效期，单位秒,10800s=三个小时
+    jwtTimeOut: 10800
+    # wx小程序token有效期，单位秒,10800s=三个小时
+    wxTokenTimeOut: 10800
+
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: deleted  #全局逻辑删除字段值 3.3.0开始支持，详情看下面。
+      logic-delete-value: true # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: false # 逻辑未删除值(默认为 0)
+
+# 微信配置
+wx:
+  appId: wx2f10f1fd7f9a4b99
+  appSecret: beb56836639cb33b9ead9f6a5d14b988

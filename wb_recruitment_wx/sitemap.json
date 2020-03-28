@@ -1,0 +1,7 @@
+{
+  "desc": "UOffer",
+  "rules": [{
+  "action": "allow",
+  "page": "*"
+  }]
+}

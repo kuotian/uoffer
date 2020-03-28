@@ -1,0 +1,33 @@
+<!--pages/user/mianshi/details/details.wxml-->
+<view class='head'>
+  <view class='head1'>
+    <view class='head1_title'>{{pageData.position}}</view>
+    <view class='head1_adderr'>{{pageData.entAddress}}</view>
+    <view class='head1_status'>{{pageData.resumeSend.interviewStatus==1?'已接受':'待处理'}}</view>
+  </view>
+</view>
+<view class='body'>
+  <view class='body_head'><text>面试安排</text></view>
+  <view class='body_body'>
+    <view class='body_time'>
+      <text class='body_time1'>时间</text>
+      <text class='body_time2'>{{interviewTime}}</text>
+    </view>
+    <view class='body_time'>
+      <text class='body_time1'>地点</text>
+      <text class='body_time2'>{{pageData.resumeSend.entAddress}}07月10日14：30-07月10日14：30</text>
+    </view>
+    <view class='body_time'>
+      <text class='body_time1'>联系人</text>
+      <view class='body_time2'>
+        <view class='body_name'>{{pageData.linkman}}</view>
+        <view class='body_phone'>{{pageData.linkmanEmail}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='body'>
+  <view class='body_head'><text>企业信息</text></view>
+</view>
+
+<view wx:if="{{pageData.resumeSend.interviewStatus==0}}" class='bottom' bindtap="accept">接受邀请</view>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxxzt.recruitment.system.mapper.SysUserConfigMapper">
+  <resultMap id="BaseResultMap" type="com.hxxzt.recruitment.system.entity.SysUserConfig">
+    <!--@mbg.generated-->
+    <!--@Table sys_user_config-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="theme" jdbcType="VARCHAR" property="theme" />
+    <result column="layout" jdbcType="VARCHAR" property="layout" />
+    <result column="multi_page" jdbcType="CHAR" property="multiPage" />
+    <result column="fix_siderbar" jdbcType="CHAR" property="fixSiderbar" />
+    <result column="fix_header" jdbcType="CHAR" property="fixHeader" />
+    <result column="color" jdbcType="VARCHAR" property="color" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, theme, layout, multi_page, fix_siderbar, fix_header, color
+  </sql>
+
+</mapper>

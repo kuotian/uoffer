@@ -1,0 +1,166 @@
+/* pages/index/details/details.wxss */
+page{
+  background: #f5f5f5;
+}
+.head{
+  width: 100%;
+  height: 60rpx;
+  margin-top:20rpx;
+  position: relative;
+}
+.lest{
+  border-top: 1rpx solid #f5f5f5;
+  width: 100%;
+  background: #ffffff; 
+}
+.headImg{
+  width: 100%;
+  height: 60rpx;
+}
+.head_th{
+  position: absolute;
+  top:0;
+  left: 42rpx;
+  color: #ffffff;
+  font-size: 30rpx;
+  line-height: 60rpx;
+}
+.userimg{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius:50%;
+  margin: 20rpx auto; 
+  background: #333;
+}
+.userimg image{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius:50%; 
+  margin-top: 2rpx;
+  margin-left: 2rpx;
+}
+.lest_th{
+  width: 100%;
+  margin: 0 auto;
+  font-size: 28rpx;
+  padding: 20rpx 2.5%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.lest_tr{
+  min-height: 100%;
+  color: #999999;
+  width: 95px;
+  margin-right: 10px;
+}
+.lest_td{
+  color: #333333;
+  width: calc(100% - 130px);
+  /* display: inline-block; */
+  /* float: right; */
+
+}
+.more{
+	padding: 0 2.5%;
+}
+.lest .grace-icons{
+	font-size: 20px;
+	color: #999999;
+	margin-right: 10px;
+}
+/* 关注，点赞，评论图标 */
+.handle-area{
+	width: 100%;
+	padding: 10px;
+	background: #fff;
+	box-sizing: border-box;
+}
+.handle-area textarea{
+	width: 550rpx;
+	height: 120px;
+	background: #efefef;
+	border-radius: 5px;
+	padding: 5px;
+	box-sizing: border-box;
+}
+.right-area>view{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+.handle-area .grace-icons{
+	font-size: 20px;
+	color: #c3c3c3;
+	margin-right: 5px;
+}
+.active-icon{
+	color: #2AA2DF!important;
+}
+.send-btn{
+	width: 120rpx!important;
+	height: 30px!important;
+	line-height: 30px!important;
+	line-height: 30px;
+	background: #2aa2df;
+	color: #fff;
+	margin: 0 auto;
+	border-radius: 3px;
+	margin-top: 5px;
+}
+/* 评论 */
+.data-area{
+	margin-top: 10px;
+	background: #fff;
+	padding: 20rpx;
+}
+.d-title{
+	color: #2aa2df;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 30px;
+}
+.data-item{
+	position: relative;
+}
+.data-item::after{
+	content:'';
+	width: 98%;
+	border: 1rpx solid #c3c3c3;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	z-index: 10;
+}
+.user-name{
+	font-size: 16px;
+	line-height: 30px;
+	color: #000;
+}
+.d-time{
+	font-size: 12px;
+	color: #999;
+	line-height: 20px;
+}
+.d-content{
+	width: 100%;
+	font-size: 14px;
+	color: #666;
+	text-index:2em;
+	line-height: 30px;
+	padding-bottom: 10px;
+	word-break: break-all;
+}
+.apply-btn{
+	width: 95%;
+	height: 40px;
+	line-height: 40px;
+	color: #fff;
+	background: #2aa2df;
+	text-align: center;
+	border-radius: 5px;
+	margin: 10px auto;
+	
+}

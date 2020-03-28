@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxxzt.recruitment.system.mapper.SysDictMapper">
+  <resultMap id="BaseResultMap" type="com.hxxzt.recruitment.system.entity.SysDict">
+    <!--@mbg.generated-->
+    <!--@Table sys_dict-->
+    <id column="dict_id" jdbcType="BIGINT" property="dictId" />
+    <result column="key" jdbcType="BIGINT" property="key" />
+    <result column="value" jdbcType="VARCHAR" property="value" />
+    <result column="field_name" jdbcType="VARCHAR" property="fieldName" />
+    <result column="table_name" jdbcType="VARCHAR" property="tableName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    dict_id, `key`, `value`, field_name, `table_name`
+  </sql>
+
+</mapper>

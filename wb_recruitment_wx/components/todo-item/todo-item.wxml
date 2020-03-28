@@ -1,0 +1,15 @@
+<!--components/todo-item/todo-item.wxml-->
+<view class="todo-item todo-item--level">
+	<view class="todo-item__col1">
+		<todo-checkbox class="todo-item__checkbox">
+		</todo-checkbox>
+	</view>
+	<view class="todo-item__col2">
+		<input class="todo-item__title" value="{{ todo.content }}" placeholder="准备做什么？" readonly>
+		</input>
+	</view>
+	<view class="todo-item__col3">
+		<text class="todo-item__date">{{ todo.date }}</text>
+		<!-- <picker class="todo-item__date" mode="time" bindchange="handleDateChange">{{ todo.date }}</picker> -->
+	</view>
+</view>

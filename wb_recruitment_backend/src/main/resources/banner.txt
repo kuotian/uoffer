@@ -1,0 +1,13 @@
+                     ${AnsiColor.BRIGHT_RED}
+
+                .______    _______ .__   __.  __  .__   __. .___________.____    ____  __  .______
+                |   _  \  |   ____||  \ |  | |  | |  \ |  | |           |\   \  /   / |  | |   _  \
+                |  |_)  | |  |__   |   \|  | |  | |   \|  | `---|  |----` \   \/   /  |  | |  |_)  |
+                |   ___/  |   __|  |  . `  | |  | |  . `  |     |  |       \      /   |  | |   ___/
+                |  |      |  |____ |  |\   | |  | |  |\   |     |  |     __ \    /    |  | |  |
+                | _|      |_______||__| \__| |__| |__| \__|     |__|    (__) \__/     |__| | _|
+
+
+                     ${AnsiColor.BRIGHT_CYAN}
+                     Spring Boot Version: ${spring-boot.version}${spring-boot.formatted-version}
+                     Copyright (c) 2018-2020 南风知我意技术博客 https://hxxzt.com All Rights Reserved.

@@ -1,0 +1,4 @@
+@import "../graceIcons.wxss";
+.gui-tags{display:flex; flex-direction:row; flex-wrap:wrap;}
+.gui-tags-item{padding:12rpx 20rpx; line-height:38rpx; font-size:26rpx; position:relative;}
+.gui-tags-remove:after{content:"\e610"; padding-left:15rpx;}

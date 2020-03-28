@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarTitleText": "面试邀请",
+  "usingComponents": {
+      "graceEmptyNew" : "../../graceUI/components/graceEmptyNew"
+  }
+}

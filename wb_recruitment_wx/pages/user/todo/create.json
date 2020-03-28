@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "新建任务",
+  "usingComponents": {
+    "todo-checkbox": "/components/checkbox/checkbox"
+  }
+}

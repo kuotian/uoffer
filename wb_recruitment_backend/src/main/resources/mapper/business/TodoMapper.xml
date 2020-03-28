@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxxzt.recruitment.business.mapper.TodoMapper">
+    <resultMap id="BaseResultMap" type="com.hxxzt.recruitment.business.entity.Todo">
+        <!--@mbg.generated-->
+        <!--@Table todo-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="time" jdbcType="TIMESTAMP" property="time"/>
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="wx_user_id" jdbcType="INTEGER" property="wxUserId"/>
+        <result column="wx_nickname" jdbcType="VARCHAR" property="wxNickname"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="deleted" jdbcType="BOOLEAN" property="deleted"/>
+        <result column="date" jdbcType="VARCHAR" property="date"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, `time`, content, address, wx_user_id, wx_nickname, create_time, modify_time,
+        deleted
+    </sql>
+
+    <sql id="Base_Column_List_Data">
+        <!--@mbg.generated-->
+        id, `time`, date_format(`time`,'%H:%i:%s')`date`, content, address, wx_user_id, wx_nickname, create_time,
+        modify_time,
+        deleted
+    </sql>
+    <select id="getToday" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List_Data"/>
+        from `todo`
+        where date_format(`time`, '%Y-%m-%d') = date_format(now(), '%Y-%m-%d')
+        and wx_user_id = #{id,jdbcType=INTEGER} and deleted = false
+    </select>
+    <select id="getTomorrow" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List_Data"/>
+        from `todo`
+        where TO_DAYS(`time`)-TO_DAYS(NOW()) = 1
+        and wx_user_id = #{id,jdbcType=INTEGER} and deleted = false
+    </select>
+    <select id="selectListByTime" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List_Data"/>
+        from `todo`
+        WHERE date_format(`time`,'%Y-%m-%d') = #{time,jdbcType=VARCHAR}
+        and wx_user_id = #{id,jdbcType=INTEGER} and deleted = false
+    </select>
+
+
+</mapper>

@@ -1,0 +1,17 @@
+@import "./graceUI/graceUI.wxss";
+@import "./graceUI/graceIcons.wxss";
+@import "./assets/wxss/ripple.wxss";
+@import "./assets/wxss/utils.wxss";
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.flex-cell {
+  -webkit-box-flex: 1;
+  flex: 1;
+}

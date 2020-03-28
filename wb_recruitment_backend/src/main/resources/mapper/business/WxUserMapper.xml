@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxxzt.recruitment.business.mapper.WxUserMapper">
+    <resultMap id="BaseResultMap" type="com.hxxzt.recruitment.business.entity.WxUser">
+        <!--@mbg.generated-->
+        <!--@Table wx_user-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="nick_name" jdbcType="VARCHAR" property="nickName"/>
+        <result column="open_id" jdbcType="VARCHAR" property="openId"/>
+        <result column="wx_id" jdbcType="VARCHAR" property="wxId"/>
+        <result column="mobile" jdbcType="VARCHAR" property="mobile"/>
+        <result column="avatar" jdbcType="VARCHAR" property="avatar"/>
+        <result column="gender" jdbcType="INTEGER" property="gender"/>
+        <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime"/>
+        <result column="last_login_ip" jdbcType="VARCHAR" property="lastLoginIp"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="is_speak" jdbcType="BOOLEAN" property="isSpeak"/>
+        <result column="school" jdbcType="VARCHAR" property="school"/>
+        <result column="is_student" jdbcType="BOOLEAN" property="isStudent"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="deleted" jdbcType="BOOLEAN" property="deleted"/>
+    </resultMap>
+
+    <resultMap id="ChartMap" type="com.hxxzt.recruitment.business.entity.WxUser">
+        <result column="date" jdbcType="VARCHAR" property="date"/>
+        <result column="count" jdbcType="INTEGER" property="count"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, nick_name, open_id, wx_id, mobile, avatar, gender, last_login_time, last_login_ip, create_time, is_speak,
+        school, is_student, `status`, deleted
+    </sql>
+    <select id="getChart" resultMap="ChartMap">
+    select date(create_time) as `date`, count(1) as `count`
+    from wx_user
+    where create_time <![CDATA[ >= ]]> date(now()) - interval 7 day
+    and create_time <![CDATA[ <= ]]> date(now() + interval 1 day)
+    group by date(create_time);
+  </select>
+
+</mapper>

@@ -1,0 +1,15 @@
+<view class='index-body' wx:if="{{canIUse}}">
+   <view class="title">您还未登陆</view>
+   <view class="desc">请先登陆再进行操作</view>
+   <view class="userinfo">
+      <block wx:if="{{!hasUserInfo && canIUse}}">
+         <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+            立即登陆
+         </button>
+         <button class="cancel-btn" bindtap="cancel">暂不登录</button>
+      </block>
+   </view>
+</view>
+<view wx:else>
+   <button class="please">请升级微信版本</button>
+</view>

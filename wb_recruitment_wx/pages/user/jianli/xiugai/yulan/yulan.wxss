@@ -1,0 +1,58 @@
+/* pages/user/jianli/xiugai/yulan/yulan.wxss */
+page{
+  background: #f5f5f5;
+}
+.head{
+  width: 100%;
+  height: 60rpx;
+  margin-top:20rpx;
+  position: relative;
+}
+.lest{
+  border-top: 1rpx solid #f5f5f5;
+  width: 100%;
+  background: #ffffff; 
+}
+.headImg{
+  width: 100%;
+  height: 60rpx;
+}
+.head_th{
+  position: absolute;
+  top:0;
+  left: 42rpx;
+  color: #ffffff;
+  font-size: 30rpx;
+  line-height: 60rpx;
+}
+.userimg{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius:50%;
+  margin: 20rpx auto; 
+  background: #333;
+  overflow: hidden;
+}
+.userimg image{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius:50%; 
+  margin-top: 2rpx;
+  margin-left: 2rpx;
+}
+.lest_th{
+  width: 95%;
+  margin: 0 auto;
+  font-size: 28rpx;
+  padding: 20rpx 0rpx;
+}
+.lest_tr{
+  color: #999999;
+  display: inline-block;
+}
+.lest_td{
+  color: #333333;
+  width: 65%;
+  /* display: inline-block; */
+  float: right;
+}

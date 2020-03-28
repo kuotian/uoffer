@@ -1,0 +1,119 @@
+<block wx:if="{{pageParam.type=='job'}}">
+	<view class='lest'>
+		<view class='lest_th'>
+			<view class='lest_tr'>公司名：</view>
+			<view class='lest_td'>{{pageData.details.entName}}</view>
+		</view>
+		<view class='lest_th'>
+			<view class='lest_tr'>职位信息：</view>
+			<view class='lest_td'>{{pageData.details.position}}</view>
+		</view>
+		<view class='lest_th'>
+			<view class='lest_tr'>任职要求：</view>
+			<view class='lest_td'>{{pageData.details.jobRequirements}}</view>
+		</view>
+		<view class='lest_th'>
+			<view class='lest_tr'>联系人：</view>
+			<view class='lest_td'>{{pageData.details.linkman}}</view>
+		</view>
+		<!-- <view class='lest_th'>
+      <view class='lest_tr'>户口所在地：</view>
+      <view class='lest_td'>{{pageData.details.entName}}</view>
+    </view> -->
+		<view class='lest_th'>
+			<view class='lest_tr'>联系人邮箱：</view>
+			<view class='lest_td'>{{pageData.details.linkmanEmail}}</view>
+		</view>
+		<!-- <view class='lest_th'>
+      <view class='lest_tr'>手机号码：</view>
+      <view class='lest_td'>{{pageData.details.entName}}</view>
+    </view> -->
+		<view class='lest_th'>
+			<view class='lest_tr'>公司信息：</view>
+			<view class='lest_td'>{{pageData.details.entInfo}}</view>
+		</view>
+		<view class='lest_th'>
+			<view class='lest_tr'>公司地址：</view>
+			<view class='lest_td'>{{pageData.details.entAddress}}</view>
+		</view>
+		<view class='lest_th'>
+			<view class='lest_tr'>薪资（元）：</view>
+			<view class='lest_td'>{{pageData.details.isNegotiable?'面议':pageData.details.salary}}</view>
+		</view>
+		<view class='lest_th'>
+			<view class='lest_tr'>发布学校：</view>
+			<view class='lest_td'>{{pageData.details.school}}</view>
+		</view>
+		<view class='lest_th'>
+			<view class='lest_tr'>发布人：</view>
+			<view class='lest_td'>{{pageData.details.username}}</view>
+		</view>
+		<view class='lest_th'>
+			<view class='lest_tr'>发布时间：</view>
+			<view class='lest_td'>{{pageData.details.createTime}}</view>
+		</view>
+	</view>
+</block>
+<block wx:else>
+	<view class='lest'>
+		<view class='lest_th'>
+			<view class='lest_tr'>公司名：</view>
+			<view class='lest_td'>{{pageData.details.entName}}</view>
+		</view>
+		<view class='lest_th'>
+			<view class='lest_tr'>宣讲会内容：</view>
+			<view class='lest_td'>{{pageData.details.content}}</view>
+		</view>
+		<view class='lest_th'>
+			<view class='lest_tr'>宣讲会地址：</view>
+			<view class='lest_td'>{{pageData.details.address}}</view>
+		</view>
+		<view class='lest_th'>
+			<view class='lest_tr'>宣讲会时间：</view>
+			<view class='lest_td'>{{pageData.details.time}}</view>
+		</view>
+		<view class='lest_th'>
+			<view class='lest_tr'>联系人：</view>
+			<view class='lest_td'>{{pageData.details.linkman}}</view>
+		</view>
+		<view class='lest_th'>
+			<view class='lest_tr'>联系人邮箱：</view>
+			<view class='lest_td'>{{pageData.details.linkmanEmail}}</view>
+		</view>
+		<view class='lest_th'>
+			<view class='lest_tr'>发布学校：</view>
+			<view class='lest_td'>{{pageData.details.school}}</view>
+		</view>
+		<view class='lest_th'>
+			<view class='lest_tr'>发布人：</view>
+			<view class='lest_td'>{{pageData.details.username}}</view>
+		</view>
+		<view class='lest_th'>
+			<view class='lest_tr'>发布时间：</view>
+			<view class='lest_td'>{{pageData.details.createTime}}</view>
+		</view>
+	</view>
+</block>
+<view class="handle-area grace-flex grace-border-t">
+	<textarea bindblur="bindTextAreaBlur" value="{{val}}" placeholder="写评论..." bindinput="valChange"/>
+	<view class="right-area flex-cell">
+		<view class="collect" bindtap="collectTap">
+			<text class="grace-grids-icon grace-icons icon-star {{active1?'active-icon':''}}"></text>
+			<text>{{pageData.focusCount}}</text>
+		</view>
+		<view class="love" bindtap="loveTap">
+			<text class="grace-grids-icon grace-icons icon-zan {{active2?'active-icon':''}}"></text>
+			<text>{{pageData.clickCount}}</text>
+		</view>
+		<view class="send-btn" bindtap="discussTap">发送</view>
+	</view>	
+</view>
+<view wx:if="{{pageParam.type=='job'}}" class="apply-btn" bindtap="apply">申请</view>
+<view wx:if="{{pageData.commentList.length>0}}" class="data-area">
+	<view class="d-title">全部评论</view>
+	<view class="data-item" wx:for="{{pageData.commentList}}" wx:key="index">
+		<view class="user-name">{{item.wxNickname}}</view>
+		<view class="d-time">{{item.createTime}}</view>
+		<view class="d-content">{{item.content}}</view>
+	</view>
+</view>

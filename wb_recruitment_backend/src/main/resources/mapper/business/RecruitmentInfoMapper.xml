@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxxzt.recruitment.business.mapper.RecruitmentInfoMapper">
+    <resultMap id="BaseResultMap" type="com.hxxzt.recruitment.business.entity.RecruitmentInfo">
+        <!--@mbg.generated-->
+        <!--@Table recruitment_info-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="ent_name" jdbcType="VARCHAR" property="entName"/>
+        <result column="position" jdbcType="LONGVARCHAR" property="position"/>
+        <result column="job_requirements" jdbcType="LONGVARCHAR" property="jobRequirements"/>
+        <result column="linkman" jdbcType="VARCHAR" property="linkman"/>
+        <result column="linkman_email" jdbcType="VARCHAR" property="linkmanEmail"/>
+        <result column="ent_info" jdbcType="LONGVARCHAR" property="entInfo"/>
+        <result column="ent_address" jdbcType="VARCHAR" property="entAddress"/>
+        <result column="salary" jdbcType="VARCHAR" property="salary"/>
+        <result column="is_negotiable" jdbcType="BOOLEAN" property="isNegotiable"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="deleted" jdbcType="BOOLEAN" property="deleted"/>
+    </resultMap>
+
+    <resultMap id="RSANDRIMAP" type="com.hxxzt.recruitment.business.entity.RecruitmentInfo">
+        <!--@mbg.generated-->
+        <!--@Table recruitment_info-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="ent_name" jdbcType="VARCHAR" property="entName"/>
+        <result column="position" jdbcType="LONGVARCHAR" property="position"/>
+        <result column="job_requirements" jdbcType="LONGVARCHAR" property="jobRequirements"/>
+        <result column="linkman" jdbcType="VARCHAR" property="linkman"/>
+        <result column="linkman_email" jdbcType="VARCHAR" property="linkmanEmail"/>
+        <result column="ent_info" jdbcType="LONGVARCHAR" property="entInfo"/>
+        <result column="ent_address" jdbcType="VARCHAR" property="entAddress"/>
+        <result column="is_negotiable" jdbcType="BOOLEAN" property="isNegotiable"/>
+        <result column="salary" jdbcType="VARCHAR" property="salary"/>
+        <result column="school" jdbcType="VARCHAR" property="school"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="deleted" jdbcType="BOOLEAN" property="deleted"/>
+        <association property="resumeSend" javaType="com.hxxzt.recruitment.business.entity.ResumeSend">
+            <result column="status" jdbcType="INTEGER" property="status"/>
+            <result column="interview_status" jdbcType="INTEGER" property="interviewStatus"/>
+            <result column="interview_time" jdbcType="TIMESTAMP" property="interviewTime"/>
+        </association>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, ent_name, `position`, job_requirements, linkman, linkman_email, ent_info, ent_address, salary, is_negotiable, school,
+        user_id, username, create_time, deleted
+    </sql>
+
+    <sql id="Base_Column_List_RI">
+        <!--@mbg.generated-->
+        ri.id, ri.ent_name, ri.`position`, ri.job_requirements, ri.linkman, ri.linkman_email, ri.ent_info,
+        ri.ent_address, ri.salary, ri.is_negotiable, ri.school,
+        ri.user_id, ri.username, ri.create_time, ri.deleted
+    </sql>
+
+    <select id="queryListByRsId" resultMap="RSANDRIMAP">
+        select
+        <include refid="Base_Column_List_RI"/>,rs.status,rs.interview_status,rs.interview_time
+        from recruitment_info ri
+        left join resume_send rs
+        on rs.info_id = ri.id
+        where rs.id = #{rsId,jdbcType=INTEGER}
+    </select>
+
+</mapper>

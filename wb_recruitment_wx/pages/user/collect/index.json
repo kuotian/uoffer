@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+      "graceEmptyNew" : "../../graceUI/components/graceEmptyNew"
+  }
+}

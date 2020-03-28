@@ -1,0 +1,21 @@
+<form bindsubmit='submitFunc'>
+	<view class='lest'>
+		<view class='lest_tr'>微信号</view>
+		<input class='lest_input' type="text" style="direction: rtl;" placeholder="请填写" name="wxId" value='{{form.wxId}}' />
+	</view>
+	<view class='lest'>
+		<view class='lest_tr'>手机号</view>
+		<input class='lest_input' type="number" style="direction: rtl;" placeholder="请填写" name="mobile" value='{{form.mobile}}' />
+	</view>
+	<view class="grace-form-item">
+	  <text class="grace-form-label">是否学生</text>
+	  <view class="grace-form-body grace-nowrap grace-flex-end">
+	    <switch name="isStudent" checked="{{form.isStudent}}" bindchange="switchChange"/>
+	  </view>
+	</view>
+	<view wx:if="{{form.isStudent}}" class='lest'>
+		<view class='lest_tr'>所属学校</view>
+		<input class='lest_input' type="text" style="direction: rtl;" placeholder="请填写" name="school" value='{{form.school}}' />
+	</view>
+	<button form-type='submit' class='determine'>保存</button>
+</form>

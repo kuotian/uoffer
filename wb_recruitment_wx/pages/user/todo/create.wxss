@@ -1,0 +1,76 @@
+@import "/components/todo-item/todo-item.wxss";
+.create-header {
+  padding: 0;
+  border-bottom: 0;
+}
+button::after {
+    border: 0; 
+}
+
+.field-set {
+  background-color: #fff;
+}
+
+.field-item {
+  display: flex;
+  border-bottom: 1px dashed #eee;
+  padding: 30rpx;
+  font-size: 30rpx;
+  color: #444;
+}
+
+.field-item:last-child {
+  border-bottom: none;
+}
+
+.field-label {
+  display: block;
+  color: #999;
+  white-space: nowrap;
+  min-width: 100rpx;
+  text-align: right;
+}
+
+.field-control {
+  flex: 8;
+  padding: 0 0 0 32rpx;
+  font-size: 32rpx;
+}
+
+.field-input {
+  font-size: 32rpx;
+  padding: 6rpx 0;
+}
+
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+}
+
+.button {
+  display: inline-block;
+  flex: 1;
+  border: 1px solid #eee;
+  border-radius: 0;
+  border-image: none;
+  box-shadow: none;
+  background-color: #fff;
+  font-size: 32rpx;
+}
+
+.button-primary {
+  background-color: #5872DE;
+  border: 1px solid #5872DE;
+  color: #fff;
+}
+
+.button-round {
+  border-radius: 300rpx;
+}

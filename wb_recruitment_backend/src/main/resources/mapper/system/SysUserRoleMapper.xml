@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxxzt.recruitment.system.mapper.SysUserRoleMapper">
+    <resultMap id="BaseResultMap" type="com.hxxzt.recruitment.system.entity.SysUserRole">
+        <!--@mbg.generated-->
+        <!--@Table sys_user_role-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="role_id" jdbcType="INTEGER" property="roleId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, user_id, role_id
+    </sql>
+    <insert id="insertByRoleList">
+        <!--@mbg.generated-->
+        insert into sys_user_role(user_id,role_id)values
+        <foreach collection="roleIds" item="item" index="index" separator=",">
+            (
+            #{userId,jdbcType=INTEGER},
+            #{item.value}
+            )
+        </foreach>
+    </insert>
+    <select id="findUserIdsByMenuId" resultType="java.lang.Integer">
+        SELECT
+        user_id
+        FROM
+        sys_user_role
+        WHERE
+        role_id IN ( SELECT rm.role_id FROM sys_role_menu rm WHERE rm.menu_id = #{menuId} )
+    </select>
+    <update id="updateRoleIdByUserId">
+        update sys_user_role set role_id = #{roleId,jdbcType=INTEGER} where user_id = #{userId,jdbcType=INTEGER}
+    </update>
+</mapper>

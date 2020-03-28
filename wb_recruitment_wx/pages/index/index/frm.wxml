@@ -1,0 +1,87 @@
+<!-- index.wxml -->
+<!-- 搜索 -->
+<view class='page_row' bindtap="suo">
+  <navigator class="search" url='../../search/search'>
+    <image src='../../../images/search.png'></image>
+    <text>搜索职位</text>
+  </navigator>
+</view>
+<!-- banner -->
+<swiper class='banner' indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}" interval="2000" duration="1000" indicator-color='#2AA2DF' indicator-active-color='#333333'>
+  <block wx:for="{{bannerArr}}" wx:key="index">
+    <swiper-item data-tag="{{index}}">
+      <image src="{{item.file}}" id='{{item.id}}' bindtap='bannerFunc' mode='scaleToFill' class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+<!-- <view class='nav'>
+  <view class='nav_one' bindtap='gsjsFunc'>
+    <image src='../../images/mingq.png'></image>
+    <view>名企</view>
+  </view>
+  <view class='nav_one' bindtap='rlzpFunc'>
+    <image src='../../images/mingq.png'></image>
+    <view>名企</view>
+  </view>
+  <view class='nav_one' bindtap='videoFunc'>
+    <image src='../../images/mingq.png'></image>
+    <view>名企</view>
+  </view>
+</view> -->
+<!-- 公告 -->
+<view class='notice'>
+  <view class='notice_one'>
+    <image class='noticeImg' src='../../../images/gonggao.png'></image>
+    <swiper class="side_con" vertical="true" autoplay="true" circular="true" interval="5000">
+      <block wx:for="{{gonggaoArr}}" wx:key="index">
+        <swiper-item>
+          <navigator url='gonggao/gonggao?gId={{item.id}}'>
+            <view class='notice_tltle'>{{item.header}}</view>
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+
+<!-- 信息部分 -->
+<view class='msg_list'>
+  <view class='btn_tab'>
+    <view class="{{listCat==0?'active':'normal'}}" bindtap="tuiTabFunc">招聘信息</view>
+    <view class="{{listCat==1?'active':'normal'}}" bindtap="reTabFunc">宣讲会信息</view>
+  </view>
+</view>
+<!-- 招聘信息 -->
+<view wx:if="{{listCat==0}}">
+  <view class='table' wx:for="{{recruitmentInfoList}}" wx:key="index">
+    <view class='table_head'>
+      <label bindtap='detailFunc' data-type="job" data-id="{{item.id}}">
+        <view class='table_name'>{{item.entName}}</view>
+        <view class='table_type'>
+          <text class='type_left'>{{item.isNegotiable?'面议':item.salary}}</text>
+          <text class='type_right'>{{item.position}}</text>
+        </view>
+        <view class='table_address'>联系人:{{item.linkman}}</view>
+        <view class='table_address'>联系人邮箱:{{item.linkmanEmail}}</view>
+        <view class='table_address'>{{item.entAddress}}</view>
+      </label>
+    </view>
+  </view>
+</view>
+<!-- 宣讲会信息 -->
+<view wx:if="{{listCat==1}}">
+  <view class='table' wx:for="{{careerTalkList}}" wx:key="index">
+    <view class='table_head'>
+      <label bindtap='detailFunc' data-type="talk" data-id="{{item.id}}">
+        <view class='table_name'>{{item.entName}}</view>
+        <view class='table_type'>
+          <text>宣讲会时间：{{item.time}}</text>
+        </view>
+        <view class='table_type'>
+          <text>发布时间：{{item.createTime}}</text>
+        </view>
+        <view class='table_address'>{{item.address}}</view>
+      </label>
+    </view>
+  </view>
+</view>

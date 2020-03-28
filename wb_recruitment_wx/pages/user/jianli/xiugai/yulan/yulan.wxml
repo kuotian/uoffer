@@ -1,0 +1,106 @@
+<!--pages/user/jianli/xiugai/yulan/yulan.wxml-->
+<view class='head'>
+	<image class='headImg' src='../../../../../images/mine/head.png'></image>
+	<view class='head_th'>个人信息</view>
+</view>
+<view class='lest'>
+	<view class='userimg'>
+		<open-data type="userAvatarUrl"></open-data>
+	</view>
+	<view class='lest_th'>
+		<view class='lest_tr'>姓名：</view>
+		<view class='lest_td'>{{pageData.name}}</view>
+	</view>
+	<view class='lest_th'>
+		<view class='lest_tr'>年龄：</view>
+		<view class='lest_td'>{{pageData.age}}</view>
+	</view>
+	<view class='lest_th'>
+		<view class='lest_tr'>性别：</view>
+		<view class='lest_td'>{{pageData.gender}}</view>
+	</view>
+	<view class='lest_th'>
+		<view class='lest_tr'>出生日期：</view>
+		<view class='lest_td'>{{pageData.birthday}}</view>
+	</view>
+	<view class='lest_th'>
+		<view class='lest_tr'>参加工作时间：</view>
+		<view class='lest_td'>{{pageData.workingHours}}</view>
+	</view>
+	<view class='lest_th'>
+		<view class='lest_tr'>户口所在地：</view>
+		<view class='lest_td'>{{pageData.domicileAddress}}</view>
+	</view>
+	<view class='lest_th'>
+		<view class='lest_tr'>现居住城市：</view>
+		<view class='lest_td'>{{pageData.nowAddress}}</view>
+	</view>
+	<view class='lest_th'>
+		<view class='lest_tr'>手机号码：</view>
+		<view class='lest_td'>{{pageData.mobile}}</view>
+	</view>
+	<view class='lest_th'>
+		<view class='lest_tr'>邮箱地址：</view>
+		<view class='lest_td'>{{pageData.email}}</view>
+	</view>
+</view>
+
+
+<view class='head'>
+	<image class='headImg' src='../../../../../images/mine/head.png'></image>
+	<view class='head_th'>求职</view>
+</view>
+<view class='lest'>
+	<view class='lest_th'>
+		<view class='lest_tr'>求职意向：</view>
+		<view class='lest_td'>{{pageData.jobIntention}}</view>
+	</view>
+	<view class='lest_th'>
+		<view class='lest_tr'>学历：</view>
+		<view class='lest_td'>{{pageData.education}}</view>
+	</view>
+	<view class='lest_th'>
+		<view class='lest_tr'>毕业院校：</view>
+		<view class='lest_td'>{{pageData.schoolOfGraduation}}</view>
+	</view>
+	<view class='lest_th'>
+		<view class='lest_tr'>专业：</view>
+		<view class='lest_td'>{{pageData.major}}</view>
+	</view>
+	<view class='lest_th'>
+		<view class='lest_tr'>工作经历：</view>
+		<view class='lest_td'>{{pageData.workExperience}}</view>
+	</view>
+	<view class='lest_th'>
+		<view class='lest_tr'>项目经验：</view>
+		<view class='lest_td'>{{pageData.projectExperience}}</view>
+	</view>
+	<view class='lest_th'>
+		<view class='lest_tr'>自我评价：</view>
+		<view class='lest_td'>{{pageData.selfAppraisal}}</view>
+	</view>
+	<!-- <view class='lest_th'>
+    <view class='lest_tr'>工作性质：</view>
+    <view class='lest_td'>全职</view>
+  </view>
+  <view class='lest_th'>
+    <view class='lest_tr'>工作地点：</view>
+    <view class='lest_td'></view>
+  </view>
+  <view class='lest_th'>
+    <view class='lest_tr'>期望薪资：</view>
+    <view class='lest_td'></view>
+  </view>
+  <view class='lest_th'>
+    <view class='lest_tr'>职位类别：</view>
+    <view class='lest_td'></view>
+  </view>
+  <view class='lest_th'>
+    <view class='lest_tr'>行业类别：</view>
+    <view class='lest_td'></view>
+  </view>
+  <view class='lest_th'>
+    <view class='lest_tr'>工作状态：</view>
+    <view class='lest_td'></view>
+  </view> -->
+</view>

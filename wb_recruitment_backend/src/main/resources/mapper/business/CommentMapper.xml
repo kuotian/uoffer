@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxxzt.recruitment.business.mapper.CommentMapper">
+    <resultMap id="BaseResultMap" type="com.hxxzt.recruitment.business.entity.Comment">
+        <!--@mbg.generated-->
+        <!--@Table comment-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+        <result column="type_id" jdbcType="INTEGER" property="typeId"/>
+        <result column="wx_user_id" jdbcType="INTEGER" property="wxUserId"/>
+        <result column="wx_nickname" jdbcType="VARCHAR" property="wxNickname"/>
+        <result column="content" jdbcType="LONGVARCHAR" property="content"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="deleted" jdbcType="BOOLEAN" property="deleted"/>
+    </resultMap>
+
+    <resultMap id="map" type="com.hxxzt.recruitment.business.entity.Comment" extends="BaseResultMap">
+        <association property="careerTalk" javaType="com.hxxzt.recruitment.business.entity.CareerTalk">
+            <result column="ent_name" jdbcType="VARCHAR" property="entName"/>
+            <result column="address" jdbcType="VARCHAR" property="address"/>
+            <result column="school_career_talk" jdbcType="VARCHAR" property="school"/>
+        </association>
+        <association property="recruitmentInfo" javaType="com.hxxzt.recruitment.business.entity.RecruitmentInfo">
+            <result column="ent_name_recruitment_info" jdbcType="VARCHAR" property="entName"/>
+            <result column="position" jdbcType="LONGVARCHAR" property="position"/>
+            <result column="job_requirements" jdbcType="LONGVARCHAR" property="jobRequirements"/>
+            <result column="salary" jdbcType="VARCHAR" property="salary"/>
+            <result column="is_negotiable" jdbcType="BOOLEAN" property="isNegotiable"/>
+            <result column="school_recruitment_info" jdbcType="VARCHAR" property="school"/>
+        </association>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, `type`, type_id, wx_user_id, wx_nickname, content, create_time, deleted
+    </sql>
+    <sql id="SELECT_LIST">
+        <!--@mbg.generated-->
+        c.id, c.`type`, c.type_id, c.wx_user_id, c.wx_nickname, c.content, c.create_time, c.deleted,
+        ct.ent_name, ct.address, ct.school,
+        ri.ent_name as ent_name_recruitment_info, ri.position, ri.job_requirements,ri.salary, ri.is_negotiable,
+        ri.school as
+        school_recruitment_info
+    </sql>
+    <select id="selectListByWxUserId" resultMap="map">
+        select
+        <include refid="SELECT_LIST"/>
+        from comment c
+        left join recruitment_info ri on (c.type = 1 and c.type_id = ri.id)
+        left join career_talk ct on (c.type = 2 and c.type_id = ct.id)
+        where c.wx_user_id = #{wxUserId,jdbcType=INTEGER}
+    </select>
+    <select id="selectCommonByStudent" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from comment
+        where wx_user_id in
+        (select id
+        from wx_user
+        where school = (select school
+        from wx_user
+        where id = #{id,jdbcType=INTEGER})) and `type` = #{type,jdbcType=INTEGER};
+    </select>
+    <select id="selectCommonByNotStudent" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from comment
+        where wx_user_id in
+        (select id
+        from wx_user
+        where is_student = false)
+        and `type` = #{type,jdbcType=INTEGER}
+    </select>
+
+</mapper>

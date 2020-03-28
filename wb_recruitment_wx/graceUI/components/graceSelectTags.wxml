@@ -1,0 +1,5 @@
+<view class="grace-select-tags">
+  <view class="grace-select-tag {{item.checked ? 'grace-checked' : ''}}" data-index="{{index}}" 
+  style="width:{{itemWidth}}; background:{{item.checked ? selectedColor : '#F6F7F8'}}; font-size:{{fontSize}};" 
+  catchtap="graceSelectChange" wx:for="{{tagsData}}" wx:key="index">{{item.name}}</view>
+</view>

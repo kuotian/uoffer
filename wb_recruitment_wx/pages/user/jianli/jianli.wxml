@@ -1,0 +1,41 @@
+<block wx:for="{{pageData}}" wx:key="index">
+  <view class='one' data-i="{{index}}" bindtap='xuanzeFunc'>
+    <view class='one_title grace-space-between grace-flex-vcenter '>
+      <view>{{item.title}}</view>
+	  <view wx:if="{{item.isDefault}}" class="default"></view>
+    </view>
+    <view class='one_time'>
+      {{item.workingHours}}
+      <text>{{item.isHide?'隐藏':'公开'}}</text>
+    </view>
+    <view class='two' wx:if="{{item.ifhidden}}">
+      <image class='two_bg' src='../../../images/mine/bg.png'></image>
+      <view class='two1'>
+        <view class='three' data-jid="{{item.id}}" bindtap='xiugaiFunc'>
+          <image class='three_img' src='../../../images/mine/xiug.png'></image>
+          <view class='three_text'>修改</view>
+        </view>
+        <view class='three' data-jid="{{item.id}}" bindtap='isdefaultFunc'>
+          <image class='three_img' src='../../../images/mine/mor.png'></image>
+          <view class='three_text'>设为默认</view>
+        </view>
+        <view class='three' data-i="{{index}}" data-jid="{{item.id}}" bindtap='ishideFunc'>
+          <image class='three_img' src='../../../images/mine/gongk.png'></image>
+          <view class='three_text'>{{item.isHide?'公开':'隐藏'}}</view>
+        </view>
+        <view class='three' data-i="{{index}}" data-jid="{{item.id}}" bindtap='gengduoFunc'>
+          <image class='three_img' src='../../../images/mine/more.png'></image>
+          <view class='three_text'>更多</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>
+<view class='button'>
+  <view class='button1' bindtap='selectFunc'>
+    <view class='button1_one'>去找好工作</view>
+  </view>
+  <view class='button2' bindtap='addFunc'>
+    <view class='button2_one'>创建新简历</view>
+  </view>
+</view>

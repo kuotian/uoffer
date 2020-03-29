@@ -27,7 +27,8 @@
   </view>
 </view>
 <view class='body'>
-  <view class='body_head'><text>企业信息</text>{{pageData.entInfo}}</view>
+  <view class='body_head'><text>企业信息</text></view>
+  <view class='c-info'>{{pageData.entInfo}}</view>
 </view>
 
 <view wx:if="{{pageData.resumeSend.interviewStatus==0}}" class='bottom' bindtap="accept">接受邀请</view>

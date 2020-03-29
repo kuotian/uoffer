@@ -32,7 +32,6 @@ import java.util.List;
 @Api(tags = "首页相关接口")
 public class AdminIndexController {
 
-
     @Autowired
     private IWxUserService wxUserService;
 
